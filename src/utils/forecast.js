@@ -8,7 +8,6 @@ const forecast = (latitude, longitude, callback) => {
         url,
         json: true
     }, ( error, { body } ) => {
-
         if (error) {
             console.log('Something went wrong', undefined)
         } else if (body.error) {
@@ -17,7 +16,7 @@ const forecast = (latitude, longitude, callback) => {
 
         } else {
              const weather = body.current;
-            callback(undefined, `it is currently ${weather.temperature} C. There is a ${weather.precip}% chance of rain.`)
+            callback(undefined, `it is currently ${weather.temperature} C. There is a ${weather.precip}% chance of rain. It is ${weather.weather_descriptions}.`)
         }
     })
 
